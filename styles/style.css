@@ -11,6 +11,153 @@
 */
 
 .page {
+  background-image: var(--background-gradient);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
+  inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   min-block-size: 100dvb;
+  font-family: var(--font-primary), sans-serif;
 }
+
+.page > * {
+  font-size: 18px;
+  line-height: 21px;
+  font-variation-settings: 'wght' 400;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+  margin-block: var(--margin-block-header);
+  background-color: rgb(255, 255, 255);
+  border: solid 2px rgb(0, 0, 0);
+}
+
+.header__title {
+  font-family: var(--font-accent), monospace;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  font-family: var(--font-accent), monospace;
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  border: solid 2px rgb(0, 0, 0);
+  margin-bottom: 50px;
+}
+
+.card__title {
+  font-variation-settings: 'wght' 700;
+  font-size: 18px;
+  line-height: 21.78px;
+  margin-inline: 10px;
+  margin-block: 6px;
+}
+
+.card__picture-container {
+  position: relative;
+  background-color: gold;
+  overflow: hidden;
+  /*border-block: solid 2px rgb(0, 0, 0);*/
+  aspect-ratio: 1/1;
+}
+
+.card__img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card__abs-text {
+  position: absolute;
+  top: 25px;
+  right: 13px;
+  font-family: var(--font-accent), monospace;
+  font-size: 14px;
+  text-shadow:
+          -1px -1px 0 #fff,
+          1px -1px 0 #fff,
+          -1px  1px 0 #fff,
+          1px  1px 0 #fff;
+  opacity: 50%;
+}
+
+.card__text-container {
+  margin: 25px;
+}
+
+.card__text {
+  margin-block-end: 27px;
+
+}
+
+.card__like-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
+.card__icon-button {
+  background: none; /* Убираем фоновый цвет */
+  border: none; /* Убираем границу */
+  padding: 0; /* Убираем внутренние отступы */
+  cursor: pointer; /* Меняем курсор на указатель, чтобы показать, что это интерактивный элемент */
+}
+
+.like-icon {
+  width: 24px;
+  aspect-ratio: 1/1;
+  background-color: palevioletred;
+  /* Стили для иконки по умолчанию */
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 39px;
+  background-color: rgb(255 255 255);
+  border: solid 2px rgb(0, 0, 0);
+}
+
+.button__text {
+  font-family: var(--font-accent), monospace;
+  font-size: 14px;
+  text-align: center;
+  text-wrap: nowrap;
+}
+
+.like-icon.is-liked {
+  /* Стили для иконки при активном состоянии "лайк" */
+  fill: red; /* Пример изменения цвета иконки на красный */
+}
+
+.container__button-save {
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+  margin-bottom: 102px ;
+  margin-inline: auto;
+  justify-content: center;
+  align-items: center;
+  block-size: 84px;
+  inline-size: 306px;
+  background-color: rgb(255 255 255);
+  border: solid 2px rgb(0, 0, 0);
+}
+
+.floppy-icon {
+  width: 28px;
+}
+
