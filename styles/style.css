@@ -10,6 +10,24 @@
 
 */
 
+@keyframes scale {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.25;
+  }
+}
+
+@keyframes opacity {
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .page {
   background-image: var(--background-gradient);
   background-size: cover;
@@ -32,7 +50,7 @@
   gap: 20px;
   align-items: center;
   justify-content: center;
-  block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+     block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   margin-block: var(--margin-block-header);
   background-color: rgb(255, 255, 255);
   border: solid 2px rgb(0, 0, 0);
@@ -77,13 +95,14 @@
 .card__img {
   object-fit: cover;
   width: 100%;
-  border-block: solid 2px rgb(0, 0, 0);
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .card__abs-text {
   position: absolute;
-  top: 22px;
-  right: 12px;
+  top: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
+  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   font-family: var(--font-accent), monospace;
   font-size: 14px;
   text-shadow:
@@ -106,24 +125,23 @@
 .card__like-container {
   display: flex;
   gap: 12px;
-  align-items: center;
   justify-content: flex-end;
   margin-right: 25px;
   margin-bottom: 25px;
 }
 
 .card__icon-button {
-  background: none; /* Убираем фоновый цвет */
-  border: none; /* Убираем границу */
-  padding: 0; /* Убираем внутренние отступы */
-  cursor: pointer; /* Меняем курсор на указатель, чтобы показать, что это интерактивный элемент */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .like-icon {
-  width: 24px;
-  aspect-ratio: 1/1;
-  background-color: palevioletred;
-  /* Стили для иконки по умолчанию */
+  width: 39px;
+  height: 36px;
 }
 
 .card__like-button {
@@ -137,13 +155,7 @@
 .button__text {
   font-family: var(--font-accent), monospace;
   font-size: 14px;
-
   text-wrap: nowrap;
-}
-
-.like-icon.is-liked {
-  /* Стили для иконки при активном состоянии "лайк" */
-  fill: red; /* Пример изменения цвета иконки на красный */
 }
 
 .container__button-save {
@@ -154,8 +166,8 @@
   margin-inline: auto;
   justify-content: center;
   align-items: center;
-  block-size: 84px;
-  inline-size: 306px;
+  block-size: clamp(55px, calc(84px + (100vw - 375px) * -29 / 1065), 84px);
+  inline-size: clamp(19.3125rem, 18.6963rem + 2.6291vw, 21.0625rem);
   background-color: rgb(255 255 255);
   border: solid 2px rgb(0, 0, 0);
 }
@@ -165,7 +177,7 @@
 }
 
 .modal-save[open]::backdrop {
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 body:has(.modal-save[open]) {
@@ -207,4 +219,139 @@ body:has(.modal-save[open]) {
   width: 39px;
   aspect-ratio: 1/1;
 }
+
+/*не поняла про анимацию тени как В ШАПКЕ, поэтому сделала похожую из видео*/
+.container__button-save:focus,
+.card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 rgb(0, 0, 0);
+  transition: box-shadow 0.5s ease;
+}
+
+.container__button-save,
+.card__like-button {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #fff;
+  color: white;
+
+}
+
+.container__button-save::before,
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+  z-index:0;
+
+}
+
+.container__button-save:hover::before {
+  transform: scaleX(1);
+
+
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text, .close-modal {
+  mix-blend-mode: difference;
+  color: white;
+  /*mix-blend-mode: difference   колорблендом ;*/
+}
+
+.floppy-icon {
+  fill: white;
+  color: white;
+  mix-blend-mode: difference;
+  box-shadow: 0 0 0 2px rgb(0, 0, 0); /* Начальное состояние: прозрачная тень */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(0, 0, 0);
+}
+
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:hover .core {
+  transition: fill 0.3s ease 0.03s;
+  fill: var(--color-contour-svg);
+}
+
+.card__icon-button:active .core {
+  fill: var(--color-heart-svg);
+  transition: fill 0.3s ease 0.03s;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s ease 0.05s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--color-contour-svg);
+  transition: fill 0.3s ease;
+}
+.card__icon-button:active .main-body {
+  fill: var(--color-heart-svg);
+  transition: fill 0.3s ease 0.03s;
+}
+
+.like-icon.is-liked .contour {
+  fill:var(--color-heart-svg);
+  transition: fill 0.3s ease 0.06s;
+}
+
+.like-icon.is-liked .core,
+.like-icon.is-liked .sparks,
+.like-icon.is-liked .main-body{
+  fill: var(--color-heart-svg);
+}
+
+.like-icon.is-liked .sparks {
+  transform-origin: center;
+  animation: opacity 0.3s ease-in 0.3s;
+  animation-iteration-count: 1;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scale 0.3s ease-in 0.1s;
+  animation-iteration-count: 1;
+}
+
+
+
+/*написать меди запросы для дискеты 1440
+  медиа меньше 375
+  фильтры
+  поправить сердечко лайк
+  эффекты
+  размеры картинок*/
+
+
+
+
+
 
