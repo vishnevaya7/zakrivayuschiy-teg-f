@@ -42,6 +42,7 @@
   font-family: var(--font-accent), monospace;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-weight: 400;
 }
 
 .header__subtitle {
@@ -49,9 +50,12 @@
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-weight: 400;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background-color: rgb(255, 255, 255);
   border: solid 2px rgb(0, 0, 0);
   margin-bottom: 50px;
@@ -62,26 +66,24 @@
   font-size: 18px;
   line-height: 21.78px;
   margin-inline: 10px;
-  margin-block: 6px;
+  margin-block: 5px 4px;
 }
 
 .card__picture-container {
   position: relative;
-  background-color: gold;
-  overflow: hidden;
-  /*border-block: solid 2px rgb(0, 0, 0);*/
   aspect-ratio: 1/1;
 }
 
 .card__img {
   object-fit: cover;
   width: 100%;
+  border-block: solid 2px rgb(0, 0, 0);
 }
 
 .card__abs-text {
   position: absolute;
-  top: 25px;
-  right: 13px;
+  top: 22px;
+  right: 12px;
   font-family: var(--font-accent), monospace;
   font-size: 14px;
   text-shadow:
@@ -93,7 +95,7 @@
 }
 
 .card__text-container {
-  margin: 25px;
+  margin: 21px 25px 25px 25px;
 }
 
 .card__text {
@@ -126,7 +128,8 @@
 
 .card__like-button {
   inline-size: 130px;
-  block-size: 39px;
+  block-size: 38px;
+  padding-top: 4px;
   background-color: rgb(255 255 255);
   border: solid 2px rgb(0, 0, 0);
 }
@@ -134,7 +137,7 @@
 .button__text {
   font-family: var(--font-accent), monospace;
   font-size: 14px;
-  text-align: center;
+
   text-wrap: nowrap;
 }
 
@@ -159,5 +162,49 @@
 
 .floppy-icon {
   width: 28px;
+}
+
+.modal-save[open]::backdrop {
+  backdrop-filter: blur(10px);
+}
+
+body:has(.modal-save[open]) {
+  overflow: hidden;
+}
+
+.modal-save {
+  display: none;
+}
+
+.container__button-save-close {
+  inline-size: 257px;
+  block-size: 38px;
+  margin: 0;
+}
+
+.modal-save[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  block-size: 191px;
+  inline-size: 341px;
+}
+
+.modal-content {
+  display: flex;
+  gap: 20px;
+}
+.push-floppy, .close-modal {
+  text-transform: uppercase;
+  font-family: var(--font-accent),monospace;
+  font-size: 14px;
+  height: auto;
+}
+
+.modal-content .floppy-icon {
+  width: 39px;
+  aspect-ratio: 1/1;
 }
 
