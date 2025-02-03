@@ -2,10 +2,8 @@
 @font-face {
     font-display: swap;
     font-family: 'Inter-Variable';
-    src:
-            local('Inter-Variable'),
-            url('Inter-Variable.woff2') format('woff2');
-    src:    url('Inter-Variable.woff2') format('woff2-variations');
+    src: local('Inter-Variable'),
+         url('Inter-Variable.woff2') format('woff2 supports variations');
     font-weight: 400 785;
 }
 
