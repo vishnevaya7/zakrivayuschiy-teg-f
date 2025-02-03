@@ -3,6 +3,8 @@
 :root {
     --font-primary: 'Inter-Variable';
     --font-accent: 'PressStart2P';
+    --bg-color: rgb(255 255 255);
+    --color-border: rgb(0 0 0);
     --margin-block-header: 100px;
     --background-gradient:
             repeating-linear-gradient(90deg, #d3d3d3 0px, #d3d3d3 2px, transparent 2px, transparent 4px),
