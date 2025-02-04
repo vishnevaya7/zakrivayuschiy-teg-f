@@ -21,7 +21,7 @@
   gap: 20px;
   align-items: center;
   justify-content: center;
-     block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
+  padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
   margin-block: var(--margin-block-header);
   background-color: var(--bg-color);
   border: solid 2px var(--color-border);
@@ -63,19 +63,19 @@
   overflow: hidden;
   position: relative;
   aspect-ratio: 1/1;
+  border-block: 2px solid var(--color-border);
 }
 
 .card__img {
   object-fit: cover;
-  border-block: 2px solid var(--color-border);
   width: 100%;
   aspect-ratio: 1/1;
 }
 
 .card__abs-text {
   position: absolute;
-  top: clamp(1.4375rem, 1.3935rem + 0.1878vw, 1.5625rem);
-  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
+  top: clamp(1.3125rem, 1.2685rem + 0.1878vw, 1.4375rem);
+  right: clamp(0.6875rem, 0.4234rem + 1.1268vw, 1.4375rem);
   font-family: var(--font-accent), fantasy;
   font-size: 14px;
   text-shadow:
@@ -98,7 +98,7 @@
 
 .card__like-container {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   justify-content: flex-end;
   margin-right: 25px;
   margin-bottom: 25px;
@@ -110,7 +110,12 @@
   width:39px;
   height: 36px;
   align-self: center;
-  transform: translate(-2px, 0);
+  margin-inline-start: -2px;
+}
+
+.sparks {
+  opacity: 1;
+  fill:red;
 }
 
 .card__like-button {
@@ -128,6 +133,7 @@
   padding: 0;
   height: 35px;
   width: 35px;
+  transition: box-shadow 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -163,6 +169,7 @@
   block-size: clamp(55px, calc(84px + (100vw - 375px) * -29 / 1065), 84px);
   inline-size: clamp(19.3125rem, 18.6963rem + 2.6291vw, 21.0625rem);
   margin-inline: auto;
+  margin-block-end: clamp(6.25rem, 6.184rem + 0.2817vw, 6.4375rem);
 }
 
 .container__button-close {
@@ -290,11 +297,11 @@ body:has(.modal-save[open]) {
 
 .card__icon-button:hover .main-body {
   fill: var(--color-contour-svg);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.05s;
 }
 .card__icon-button:active .main-body {
   fill: var(--color-heart-svg);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
@@ -306,6 +313,7 @@ body:has(.modal-save[open]) {
 .like-icon.is-liked .sparks,
 .like-icon.is-liked .main-body {
   fill: var(--color-heart-svg);
+  transition: fill 0.3s linear 0.05s;
 }
 
 .filter-brightness {
