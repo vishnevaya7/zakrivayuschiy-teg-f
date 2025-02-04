@@ -79,12 +79,11 @@
   font-family: var(--font-accent), fantasy;
   font-size: 14px;
   text-shadow:
-          -1px -1px 0 #fff,
-          1px -1px 0 #fff,
-          -1px  1px 0 #fff,
-          1px  1px 0 #fff;
+          -1px -1px 0 var(--bg-color),
+          1px -1px 0 var(--bg-color),
+          -1px  1px 0 var(--bg-color),
+          1px  1px 0 var(--bg-color);
   mix-blend-mode: hard-light;
-  opacity: 70%;
   z-index: 1;
 }
 
@@ -107,10 +106,6 @@
 }
 
 .like-icon {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
   width:39px;
   height: 36px;
   align-self: center;
@@ -125,7 +120,6 @@
 }
 
 .card__icon-button {
-  position: relative;
   background: none;
   border: none;
   cursor: pointer;
@@ -138,7 +132,6 @@
   outline: none;
 }
 
-.card__like-container,
 .card__icon-button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-border);
@@ -379,13 +372,13 @@ body:has(.modal-save[open]) {
   }
 }
 
-/*@supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {*/
-/*  .card__abs-text {*/
-/*    -webkit-text-stroke: 1px var(--bg-color);*/
-/*    text-stroke: 1px var(--bg-color);*/
-/*    text-shadow: none;*/
-/*  }*/
-/*}*/
+@supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
+  .card__abs-text {
+    -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
+    text-shadow: none;
+  }
+}
 
 
 
