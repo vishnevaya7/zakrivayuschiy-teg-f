@@ -113,11 +113,6 @@
   margin-inline-start: -2px;
 }
 
-.sparks {
-  opacity: 1;
-  fill:red;
-}
-
 .card__like-button {
   inline-size: 130px;
 }
